@@ -12,12 +12,6 @@ export default function ContactForm({ profile }) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
   }
 
-  function encode(data) {
-    return Object.keys(data)
-      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
-      .join('&')
-  }
-
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
@@ -29,11 +23,17 @@ export default function ContactForm({ profile }) {
 
     setSending(true)
     try {
-      await fetch('https://formspree.io/f/mbdbrvgk', {
+      const res = await fetch('https://formspree.io/f/mbdbrvgk', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ ...form, _subject: 'Contacto desde portfolio Nataly' }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Contacto portfolio - ${form.name}`,
+        }),
       })
+      if (!res.ok) throw new Error('Formspree error')
       setSent(true)
       setForm({ name: '', email: '', message: '' })
     } catch {
