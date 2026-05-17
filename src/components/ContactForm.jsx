@@ -2,42 +2,34 @@ import { useState } from 'react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function ContactForm({ profile }) {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [result, setResult] = useState('')
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
-  const [error, setError] = useState('')
   const [ref, visible] = useScrollAnimation()
-
-  function handleChange(e) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
-  }
 
   async function handleSubmit(e) {
     e.preventDefault()
-    setError('')
-
-    if (!form.name || !form.email || !form.message) {
-      setError('Completa todos los campos')
-      return
-    }
-
     setSending(true)
+    setResult('')
+
+    const formData = new FormData(e.target)
+    formData.append('access_key', '841c5e66-2937-4f6b-8a56-39d99d933375')
+    formData.append('subject', 'Contacto desde portfolio Nathaly')
+
     try {
-      const res = await fetch('https://formspree.io/f/mbdbrvgk', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          _subject: `Contacto portfolio - ${form.name}`,
-        }),
+        body: formData,
       })
-      if (!res.ok) throw new Error('Formspree error')
-      setSent(true)
-      setForm({ name: '', email: '', message: '' })
+      const data = await res.json()
+      if (data.success) {
+        setSent(true)
+        e.target.reset()
+      } else {
+        setResult('Error al enviar. Escribime directamente a ' + profile.email)
+      }
     } catch {
-      setError('Error al enviar. Intenta directamente a ' + profile.email)
+      setResult('Error al enviar. Escribime directamente a ' + profile.email)
     } finally {
       setSending(false)
     }
@@ -74,13 +66,8 @@ export default function ContactForm({ profile }) {
             {sent ? (
               <div className="form-success">
                 <h3>Mensaje enviado</h3>
-                <p>
-                  Gracias por escribirme. Te responderé pronto a {form.email || profile.email}.
-                </p>
-                <button
-                  className="button button-primary"
-                  onClick={() => setSent(false)}
-                >
+                <p>Gracias por escribirme. Te responderé pronto.</p>
+                <button className="button button-primary" onClick={() => setSent(false)}>
                   Enviar otro mensaje
                 </button>
               </div>
@@ -91,46 +78,22 @@ export default function ContactForm({ profile }) {
 
                   <label>
                     <span>Nombre</span>
-                    <input
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Tu nombre"
-                      required
-                    />
+                    <input name="name" placeholder="Tu nombre" required />
                   </label>
 
                   <label>
                     <span>Email</span>
-                    <input
-                      name="email"
-                      type="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="tu@email.com"
-                      required
-                    />
+                    <input name="email" type="email" placeholder="tu@email.com" required />
                   </label>
 
                   <label>
                     <span>Mensaje</span>
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      placeholder="Cuentame sobre tu proyecto..."
-                      rows={4}
-                      required
-                    />
+                    <textarea name="message" placeholder="Cuentame sobre tu proyecto..." rows={4} required />
                   </label>
 
-                  {error && <p className="form-error">{error}</p>}
+                  {result && <p className="form-error">{result}</p>}
 
-                  <button
-                    className="button button-primary"
-                    type="submit"
-                    disabled={sending}
-                  >
+                  <button className="button button-primary" type="submit" disabled={sending}>
                     {sending ? 'Enviando...' : 'Enviar mensaje'}
                   </button>
                 </form>
