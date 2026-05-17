@@ -1,6 +1,12 @@
 import heroImage from './assets/nataly-hero.jpeg'
 import editorialImage from './assets/nataly-editorial.jpeg'
 
+import ThemeToggle from './components/ThemeToggle'
+import TestimonialCarousel from './components/TestimonialCarousel'
+import VideoGallery from './components/VideoGallery'
+import ContactForm from './components/ContactForm'
+import { useScrollAnimation } from './hooks/useScrollAnimation'
+
 const profile = {
   name: 'Nataly Gomez Martinez',
   headline: 'Periodista especializada en marketing, creadora UGC y consultora en estrategia de contenido digital',
@@ -100,6 +106,12 @@ const testimonials = [
       'La combinacion entre marketing, UGC y marca personal hace que la propuesta funcione tanto para empresas como para perfiles profesionales.',
     author: 'Enfoque',
     role: 'Contenido adaptable'
+  },
+  {
+    quote:
+      'Trabajar con Nataly es tener la seguridad de que el mensaje va a llegar claro, con identidad y con un proposito estrategico detras.',
+    author: 'Colaborador',
+    role: 'Marketing digital'
   }
 ]
 
@@ -115,13 +127,26 @@ const collaborationVideos = [
   {
     title: 'Colaboracion destacada',
     subtitle: 'TikTok x contenido de marca',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
     postUrl:
       'https://www.tiktok.com/@nathaly.gomezm/video/7623565697842531602?lang=es-419',
     description:
-      'Ejemplo de contenido publicado desde su perfil, ideal para mostrar tono, presencia en camara y adaptacion a formatos de marca.'
+      'Ejemplo de contenido publicado desde su perfil, ideal para mostrar tono, presencia en camara y adaptacion a formatos de marca.',
+    category: 'TikTok'
+  },
+  {
+    title: 'Video colaborativo',
+    subtitle: 'TikTok',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
+    postUrl:
+      'https://www.tiktok.com/@nathaly.gomezm/video/7606451765197671687?lang=es-419',
+    description:
+      'Segundo ejemplo de contenido en TikTok mostrando versatilidad y presencia en camara.',
+    category: 'TikTok'
   }
 ]
+
+const videoCategories = ['TikTok', 'Instagram', 'UGC', 'LinkedIn']
 
 const socialLinks = [
   { label: 'Instagram', href: profile.instagram },
@@ -143,6 +168,11 @@ function SectionHeading({ kicker, title, text }) {
 }
 
 function App() {
+  const [heroRef, heroVisible] = useScrollAnimation()
+  const [perfilRef, perfilVisible] = useScrollAnimation()
+  const [portfolioRef, portfolioVisible] = useScrollAnimation()
+  const [serviciosRef, serviciosVisible] = useScrollAnimation()
+
   return (
     <div className="site-shell">
       <div className="ambient ambient-one" aria-hidden="true" />
@@ -154,20 +184,24 @@ function App() {
             {profile.name}
           </a>
 
-          <nav className="nav-links" aria-label="Principal">
-            <a href="#perfil">Perfil</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#colaboraciones">Colabs</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-          </nav>
+          <div className="nav-right">
+            <nav className="nav-links" aria-label="Principal">
+              <a href="#perfil">Perfil</a>
+              <a href="#portfolio">Portfolio</a>
+              <a href="#colaboraciones">Colabs</a>
+              <a href="#servicios">Servicios</a>
+              <a href="#contacto">Contacto</a>
+            </nav>
+
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
       <main>
-        <section className="section hero-section" id="inicio">
+        <section className="section hero-section" id="inicio" ref={heroRef}>
           <div className="container hero-grid">
-            <div className="hero-copy">
+            <div className={`hero-copy fade-in ${heroVisible ? 'visible' : ''}`}>
               <span className="eyebrow">Portfolio / contenido y estrategia</span>
               <p className="hero-kicker">{profile.location}</p>
               <h1>
@@ -193,7 +227,7 @@ function App() {
               </ul>
             </div>
 
-            <div className="hero-panel">
+            <div className={`hero-panel fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <div className="hero-card">
                 <div className="availability-pill">{profile.mediaKitLabel}</div>
 
@@ -225,22 +259,60 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="perfil">
+        <section className="section" id="perfil" ref={perfilRef}>
           <div className="container">
-            <SectionHeading
-              kicker="Perfil"
-              title="Una propuesta que cruza periodismo, marketing y construccion de presencia digital."
-              text="Aterrice la pagina con la informacion publica que comparte su perfil profesional para que ya se sienta mas cercana a su posicionamiento real."
-            />
+            <div className={`section-heading fade-in ${perfilVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">Perfil</span>
+              <div>
+                <h2>Una propuesta que cruza periodismo, marketing y construccion de presencia digital.</h2>
+                <p>
+                  Aterrice la pagina con la informacion publica que comparte su perfil profesional
+                  para que ya se sienta mas cercana a su posicionamiento real.
+                </p>
+              </div>
+            </div>
 
             <div className="about-grid">
-              <article className="story-card">
-                <h3>Posicionamiento</h3>
-                <p>{profile.bio}</p>
-                <p>{profile.audience}</p>
-              </article>
+              <div className="about-text-col">
+                <article className={`story-card fade-in-up ${perfilVisible ? 'visible' : ''}`}>
+                  <h3>Posicionamiento</h3>
+                  <p>{profile.bio}</p>
+                  <p>{profile.audience}</p>
+                </article>
 
-              <aside className="media-card">
+                <article className={`story-card fade-in-up ${perfilVisible ? 'visible' : ''}`}>
+                  <h3>Mi historia</h3>
+                  <p>
+                    Soy Nathaly Gómez, periodista con mención en comunicación digital y experta en
+                    marketing estratégico. He trabajado en áreas de comunicaciones de empresas
+                    globales como Electrolux Group, y como creadora de contenido he alcanzado
+                    millones de reproducciones y miles de seguidores aplicando una metodología
+                    propia, diseñada para vender sin depender de publicidad pagada.
+                  </p>
+                  <p>
+                    Tuve un emprendimiento que fracasó porque solo vendía cuando invertía en
+                    publicidad. Cuando dejaba de pagar, las ventas desaparecían. Esa experiencia me
+                    hizo entender lo que muchas marcas viven hoy: la dependencia de estrategias
+                    poco sostenibles y el uso poco efectivo del UGC.
+                  </p>
+                </article>
+
+                <article className={`story-card fade-in-up ${perfilVisible ? 'visible' : ''}`}>
+                  <h3>Cómo te puedo ayudar</h3>
+                  <p>
+                    Te acompaño a construir una presencia digital sólida, con contenido que conecta
+                    y convierte. Mi enfoque une marketing real, estrategia y propósito, con una
+                    mentalidad orientada a la constancia, para que tu presencia online sea sostenible
+                    en el tiempo.
+                  </p>
+                  <p>
+                    No se trata solo de tener likes o seguidores: se trata de construir comunidad y
+                    confianza para convertir visibilidad en ventas.
+                  </p>
+                </article>
+              </div>
+
+              <aside className={`media-card fade-in ${perfilVisible ? 'visible' : ''}`}>
                 <img
                   className="media-card-image"
                   src={editorialImage}
@@ -257,17 +329,26 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="portfolio">
+        <section className="section" id="portfolio" ref={portfolioRef}>
           <div className="container">
-            <SectionHeading
-              kicker="Portfolio"
-              title="Bloques listos para mostrar su propuesta de trabajo sin inventar cifras."
-              text="En vez de dejar metricas falsas, lo pase a una presentacion de capacidades y focos de trabajo que si podemos sostener con la informacion disponible."
-            />
+            <div className={`section-heading fade-in ${portfolioVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">Portfolio</span>
+              <div>
+                <h2>Bloques listos para mostrar su propuesta de trabajo sin inventar cifras.</h2>
+                <p>
+                  En vez de dejar metricas falsas, lo pase a una presentacion de capacidades y focos
+                  de trabajo que si podemos sostener con la informacion disponible.
+                </p>
+              </div>
+            </div>
 
             <div className="highlights-grid">
-              {highlights.map((item) => (
-                <article className="highlight-card" key={item.title}>
+              {highlights.map((item, i) => (
+                <article
+                  className={`highlight-card fade-in-up ${portfolioVisible ? 'visible' : ''}`}
+                  key={item.title}
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                >
                   <div className="card-topline">
                     <span>{item.type}</span>
                     <span>{item.metric}</span>
@@ -281,84 +362,28 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="colaboraciones">
+        <VideoGallery videos={collaborationVideos} categories={videoCategories} />
+
+        <section className="section" id="servicios" ref={serviciosRef}>
           <div className="container">
-            <SectionHeading
-              kicker="Colaboraciones"
-              title="Una mezcla de presencia editorial, video corto y perfiles activos."
-              text="Sume su foto principal, redes reales y un video de ejemplo para que el portfolio funcione como una presentacion mas viva y conectada con su trabajo en plataformas."
-            />
-
-            <div className="collab-grid">
-              {collaborationVideos.map((video) => (
-                <article className="video-card" key={video.postUrl}>
-                  <div className="video-frame">
-                    <iframe
-                      src={video.embedUrl}
-                      title={video.title}
-                      loading="lazy"
-                      allow="encrypted-media;"
-                      allowFullScreen
-                    />
-                  </div>
-
-                  <div className="video-copy">
-                    <div className="card-topline">
-                      <span>{video.subtitle}</span>
-                      <a href={video.postUrl} target="_blank" rel="noreferrer">
-                        Ver post
-                      </a>
-                    </div>
-                    <h3>{video.title}</h3>
-                    <p>{video.description}</p>
-                  </div>
-                </article>
-              ))}
-
-              <aside className="social-showcase">
-                <img
-                  className="showcase-image"
-                  src={editorialImage}
-                  alt="Retrato editorial para redes y colaboraciones"
-                />
-
-                <div className="showcase-copy">
-                  <h3>Perfiles reales y contacto directo</h3>
-                  <p>
-                    Aqui pueden ver su presencia en Instagram, TikTok y LinkedIn,
-                    ademas de un correo directo para propuestas y colaboraciones.
-                  </p>
-
-                  <div className="social-links">
-                    {socialLinks.map((link) => (
-                      <a
-                        className="social-pill"
-                        key={link.label}
-                        href={link.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </aside>
+            <div className={`section-heading fade-in ${serviciosVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">Servicios</span>
+              <div>
+                <h2>Una oferta mas clara para marcas, equipos de marketing y perfiles profesionales.</h2>
+                <p>
+                  La idea es que quien entre entienda rapido en que la puede contratar y como se
+                  traduce eso en contenido y posicionamiento.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="section" id="servicios">
-          <div className="container">
-            <SectionHeading
-              kicker="Servicios"
-              title="Una oferta mas clara para marcas, equipos de marketing y perfiles profesionales."
-              text="La idea es que quien entre entienda rapido en que la puede contratar y como se traduce eso en contenido y posicionamiento."
-            />
 
             <div className="services-grid">
-              {services.map((service) => (
-                <article className="service-card" key={service.title}>
+              {services.map((service, i) => (
+                <article
+                  className={`service-card fade-in-up ${serviciosVisible ? 'visible' : ''}`}
+                  key={service.title}
+                  style={{ transitionDelay: `${i * 80}ms` }}
+                >
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
                 </article>
@@ -367,59 +392,9 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="testimonios">
-          <div className="container">
-            <SectionHeading
-              kicker="Diferencial"
-              title="Dos ideas fuerza para explicar por que su perfil no es solo ejecucion, sino tambien criterio."
-              text="Mas adelante esto se puede cambiar por testimonios reales, logos, casos o capturas de resultados."
-            />
+        <TestimonialCarousel items={testimonials} />
 
-            <div className="quotes-grid">
-              {testimonials.map((item) => (
-                <article className="quote-card" key={item.author + item.role}>
-                  <p className="quote-text">"{item.quote}"</p>
-                  <strong>{item.author}</strong>
-                  <span>{item.role}</span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="contacto">
-          <div className="container">
-            <div className="contact-banner">
-              <div>
-                <span className="eyebrow">Contacto</span>
-                <h2>Ya se parece mas a una carta de presentacion real.</h2>
-                <p>
-                  Ya integre sus fotos, redes y correo real para que esta pagina
-                  funcione mejor como portfolio y punto de contacto para marcas.
-                </p>
-              </div>
-
-              <div className="contact-card">
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                <a href={profile.instagram} target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-                <a href={profile.tiktok} target="_blank" rel="noreferrer">
-                  TikTok
-                </a>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                  Linkedin profesional
-                </a>
-                <span>{profile.company}</span>
-                <span>{profile.education}</span>
-                <p className="contact-note">
-                  Si luego me pasas mas links de videos o colaboraciones, puedo
-                  sumar una galeria mucho mas completa en esta misma seccion.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ContactForm profile={profile} />
       </main>
 
       <footer className="footer">
