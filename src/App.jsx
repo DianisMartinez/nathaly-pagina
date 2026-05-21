@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import heroImage from './assets/nataly-hero.jpeg'
 import editorialImage from './assets/nataly-editorial.jpeg'
 
@@ -168,6 +169,7 @@ function SectionHeading({ kicker, title, text }) {
 }
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
   const [heroRef, heroVisible] = useScrollAnimation()
   const [perfilRef, perfilVisible] = useScrollAnimation()
   const [portfolioRef, portfolioVisible] = useScrollAnimation()
@@ -185,15 +187,26 @@ function App() {
           </a>
 
           <div className="nav-right">
-            <nav className="nav-links" aria-label="Principal">
-              <a href="#perfil">Perfil</a>
-              <a href="#portfolio">Portfolio</a>
-              <a href="#colaboraciones">Colabs</a>
-              <a href="#servicios">Servicios</a>
-              <a href="#contacto">Contacto</a>
+            <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`} aria-label="Principal">
+              <a href="#perfil" onClick={() => setMenuOpen(false)}>Perfil</a>
+              <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
+              <a href="#colaboraciones" onClick={() => setMenuOpen(false)}>Colabs</a>
+              <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+              <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
             </nav>
 
             <ThemeToggle />
+
+            <button
+              className={`hamburger ${menuOpen ? 'hamburger-open' : ''}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={menuOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
         </div>
       </header>
@@ -266,8 +279,8 @@ function App() {
               <div>
                 <h2>Una propuesta que cruza periodismo, marketing y construccion de presencia digital.</h2>
                 <p>
-                  Aterrice la pagina con la informacion publica que comparte su perfil profesional
-                  para que ya se sienta mas cercana a su posicionamiento real.
+                  Con base periodística y visión estratégica, una propuesta que une marketing, UGC
+                  y posicionamiento digital en una oferta coherente y adaptable.
                 </p>
               </div>
             </div>
@@ -334,10 +347,10 @@ function App() {
             <div className={`section-heading fade-in ${portfolioVisible ? 'visible' : ''}`}>
               <span className="eyebrow">Portfolio</span>
               <div>
-                <h2>Bloques listos para mostrar su propuesta de trabajo sin inventar cifras.</h2>
+                <h2>Tres focos de trabajo que definen como puede acompañar a marcas y perfiles digitales.</h2>
                 <p>
-                  En vez de dejar metricas falsas, lo pase a una presentacion de capacidades y focos
-                  de trabajo que si podemos sostener con la informacion disponible.
+                  Cada área de trabajo traduce su experiencia en resultados concretos para marcas,
+                  founders y equipos de marketing.
                 </p>
               </div>
             </div>
@@ -371,8 +384,8 @@ function App() {
               <div>
                 <h2>Una oferta mas clara para marcas, equipos de marketing y perfiles profesionales.</h2>
                 <p>
-                  La idea es que quien entre entienda rapido en que la puede contratar y como se
-                  traduce eso en contenido y posicionamiento.
+                  Servicios diseñados para marcas, founders y equipos de marketing que quieren
+                  contenido con dirección, coherencia y propósito.
                 </p>
               </div>
             </div>
@@ -397,10 +410,28 @@ function App() {
         <ContactForm profile={profile} />
       </main>
 
+      <a className="float-cta" href="#contacto" aria-label="Ir a contacto">
+        Contáctame
+      </a>
+
       <footer className="footer">
         <div className="container footer-content">
-          <span>{profile.name}</span>
-          <p>Portafolio digital para contenido, marca personal y comunicacion estrategica.</p>
+          <div className="footer-left">
+            <span>{profile.name}</span>
+            <p>Portafolio digital para contenido, marca personal y comunicacion estrategica.</p>
+          </div>
+          <div className="footer-social">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                rel={link.href.startsWith('mailto') ? undefined : 'noreferrer'}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
     </div>
