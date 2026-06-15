@@ -6,10 +6,12 @@ import ThemeToggle from './components/ThemeToggle'
 import TestimonialCarousel from './components/TestimonialCarousel'
 import VideoGallery from './components/VideoGallery'
 import ContactForm from './components/ContactForm'
+import Marquee from './components/Marquee'
+import FAQ from './components/FAQ'
 import { useScrollAnimation } from './hooks/useScrollAnimation'
 
 const profile = {
-  name: 'Nataly Gomez Martinez',
+  name: 'Nathaly Gómez',
   headline: 'Periodista especializada en marketing, creadora UGC y consultora en estrategia de contenido digital',
   location: 'Gran Santiago, Chile',
   intro:
@@ -22,7 +24,7 @@ const profile = {
   instagram: 'https://www.instagram.com/nathaly.gomezm/',
   tiktok: 'https://www.tiktok.com/@nathaly.gomezm?lang=es-419',
   linkedin: 'https://www.linkedin.com/in/nataly-g%C3%B3mez-martinez-6183b4235/',
-  company: 'Insigth Estrategia Digital',
+  company: 'Insight Estrategia Digital',
   education: 'Universidad Finis Terrae',
   mediaKitLabel: 'Disponible para estrategia de contenido, UGC y marca personal'
 }
@@ -188,10 +190,11 @@ function App() {
 
           <div className="nav-right">
             <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`} aria-label="Principal">
-              <a href="#perfil" onClick={() => setMenuOpen(false)}>Perfil</a>
-              <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
-              <a href="#colaboraciones" onClick={() => setMenuOpen(false)}>Colabs</a>
+              <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
+              <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre mí</a>
               <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+              <a href="#casos" onClick={() => setMenuOpen(false)}>Casos de éxito</a>
+              <a href="#marca-personal" onClick={() => setMenuOpen(false)}>Marca Personal</a>
               <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
             </nav>
 
@@ -218,18 +221,19 @@ function App() {
               <span className="eyebrow">Portfolio / contenido y estrategia</span>
               <p className="hero-kicker">{profile.location}</p>
               <h1>
-                Contenido, imagen y estrategia para marcas con <span>voz propia.</span>
+                Estrategias digitales que impulsan el crecimiento de empresas y marcas personales.
               </h1>
               <p className="hero-text">
-                {profile.headline}. {profile.intro}
+                Combinamos estrategia, contenido y publicidad para atraer clientes, fortalecer el
+                posicionamiento y generar resultados medibles.
               </p>
 
               <div className="hero-actions">
-                <a className="button button-primary" href="#contacto">
-                  Quiero colaborar
+                <a className="button button-primary" href="#contacto" aria-label="Agenda una reunión">
+                  📅 Agenda una reunión
                 </a>
-                <a className="button button-secondary" href="#portfolio">
-                  Ver propuesta visual
+                <a className="button button-secondary" href="#casos" aria-label="Ver casos de éxito">
+                  📊 Ver casos de éxito
                 </a>
               </div>
 
@@ -272,12 +276,14 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="perfil" ref={perfilRef}>
+        <Marquee />
+
+        <section className="section" id="sobre" ref={perfilRef}>
           <div className="container">
             <div className={`section-heading fade-in ${perfilVisible ? 'visible' : ''}`}>
               <span className="eyebrow">Perfil</span>
               <div>
-                <h2>Una propuesta que cruza periodismo, marketing y construccion de presencia digital.</h2>
+                <h2>Una propuesta que cruza periodismo, marketing y construcción de presencia digital.</h2>
                 <p>
                   Con base periodística y visión estratégica, una propuesta que une marketing, UGC
                   y posicionamiento digital en una oferta coherente y adaptable.
@@ -285,59 +291,85 @@ function App() {
               </div>
             </div>
 
-            <div className="about-grid">
-              <div className="about-text-col">
-                <article className={`story-card fade-in-up ${perfilVisible ? 'visible' : ''}`}>
-                  <h3>Posicionamiento</h3>
-                  <p>{profile.bio}</p>
-                  <p>{profile.audience}</p>
-                </article>
+            <div className={`bento-container fade-in-up ${perfilVisible ? 'visible' : ''}`}>
+              {/* Card 1: Mi Historia (Large - spans 2 columns) */}
+              <article className="bento-card bento-card--large">
+                <div className="bento-card-header">
+                  <span className="bento-card-icon">✍️</span>
+                  <h3>Mi historia y trayectoria</h3>
+                </div>
+                <p>
+                  Soy Nathaly Gómez, periodista especializada en comunicación digital, estrategia de contenido y crecimiento de negocios.
+                  Mi experiencia combina comunicación corporativa, estrategia digital y creación de contenido, trabajando dentro de empresas y con marcas.
+                </p>
+                <p>
+                  He sido parte de equipos de comunicaciones en multinacionales como Electrolux Group Chile y trabajé como periodista corporativa para un holding de nueve empresas en Santiago.
+                  Además, desarrollé proyectos de estrategia digital y colaboré como creadora con marcas nacionales e internacionales como Eucerin, Gillette Venus, Avon, Temu, Pullman y Bigbox.
+                </p>
+                <p style={{ fontStyle: 'italic', color: 'var(--accent-deep)', marginTop: '0.5rem' }}>
+                  Mi enfoque combina rigor editorial y resultados comerciales: estrategia, contenido y publicidad basada en datos.
+                </p>
+              </article>
 
-                <article className={`story-card fade-in-up ${perfilVisible ? 'visible' : ''}`}>
-                  <h3>Mi historia</h3>
-                  <p>
-                    Soy Nathaly Gómez, periodista con mención en comunicación digital y experta en
-                    marketing estratégico. He trabajado en áreas de comunicaciones de empresas
-                    globales como Electrolux Group, y como creadora de contenido he alcanzado
-                    millones de reproducciones y miles de seguidores aplicando una metodología
-                    propia, diseñada para vender sin depender de publicidad pagada.
-                  </p>
-                  <p>
-                    Tuve un emprendimiento que fracasó porque solo vendía cuando invertía en
-                    publicidad. Cuando dejaba de pagar, las ventas desaparecían. Esa experiencia me
-                    hizo entender lo que muchas marcas viven hoy: la dependencia de estrategias
-                    poco sostenibles y el uso poco efectivo del UGC.
-                  </p>
-                </article>
-
-                <article className={`story-card fade-in-up ${perfilVisible ? 'visible' : ''}`}>
-                  <h3>Cómo te puedo ayudar</h3>
-                  <p>
-                    Te acompaño a construir una presencia digital sólida, con contenido que conecta
-                    y convierte. Mi enfoque une marketing real, estrategia y propósito, con una
-                    mentalidad orientada a la constancia, para que tu presencia online sea sostenible
-                    en el tiempo.
-                  </p>
-                  <p>
-                    No se trata solo de tener likes o seguidores: se trata de construir comunidad y
-                    confianza para convertir visibilidad en ventas.
-                  </p>
-                </article>
+              {/* Card 2: Editorial Portrait (Portrait - spans 2 rows) */}
+              <div className="bento-card bento-card--portrait">
+                <div className="bento-portrait-frame">
+                  <img
+                    className="bento-portrait-img"
+                    src={editorialImage}
+                    alt="Fotografía editorial de Nataly Gomez Martinez"
+                  />
+                  <div className="bento-portrait-overlay">
+                    <h4>Nataly Gómez M.</h4>
+                    <p>Consultora & Creadora UGC</p>
+                  </div>
+                </div>
               </div>
 
-              <aside className={`media-card fade-in ${perfilVisible ? 'visible' : ''}`}>
-                <img
-                  className="media-card-image"
-                  src={editorialImage}
-                  alt="Fotografia editorial de Nataly Gomez Martinez"
-                />
-                <h3>Que deja claro esta pagina</h3>
-                <ul className="detail-list">
+              {/* Card 3: Cómo te ayudo (Medium) */}
+              <article className="bento-card bento-card--medium">
+                <div className="bento-card-header">
+                  <span className="bento-card-icon">🚀</span>
+                  <h3>Cómo te puedo ayudar</h3>
+                </div>
+                <p>
+                  Te acompaño a construir una presencia digital sólida, con contenido que conecta y convierte.
+                </p>
+                <ul className="detail-list" style={{ marginTop: '0.8rem', fontSize: '0.9rem' }}>
                   {deliverables.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-              </aside>
+              </article>
+
+              {/* Card 4: Redes y Social Quicklinks (Socials) */}
+              <article className="bento-card bento-card--socials">
+                <div>
+                  <div className="bento-card-header">
+                    <span className="bento-card-icon">📲</span>
+                    <h3>Presencia Digital</h3>
+                  </div>
+                  <p>Canales de contenido y redes donde puedes contactarme o ver mi propuesta visual.</p>
+                </div>
+                <div className="bento-social-grid">
+                  <a href={profile.instagram} target="_blank" rel="noreferrer" className="bento-social-item">
+                    <span className="bento-social-name">Instagram</span>
+                    <span className="bento-social-handle">@nathaly.gomezm</span>
+                  </a>
+                  <a href={profile.tiktok} target="_blank" rel="noreferrer" className="bento-social-item">
+                    <span className="bento-social-name">TikTok</span>
+                    <span className="bento-social-handle">@nathaly.gomezm</span>
+                  </a>
+                  <a href={profile.linkedin} target="_blank" rel="noreferrer" className="bento-social-item">
+                    <span className="bento-social-name">LinkedIn</span>
+                    <span className="bento-social-handle">Nataly Gómez</span>
+                  </a>
+                  <a href={`mailto:${profile.email}`} className="bento-social-item">
+                    <span className="bento-social-name">Email</span>
+                    <span className="bento-social-handle">Escríbeme</span>
+                  </a>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -405,7 +437,21 @@ function App() {
           </div>
         </section>
 
-        <TestimonialCarousel items={testimonials} />
+        <section className="section" id="casos">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">Casos de éxito</span>
+              <div>
+                <h2>Empresas y marcas que han confiado en mi trabajo</h2>
+                <p>Casos con diagnóstico, estrategia aplicada y resultados medibles.</p>
+              </div>
+            </div>
+
+            <TestimonialCarousel items={testimonials} />
+          </div>
+        </section>
+
+        <FAQ />
 
         <ContactForm profile={profile} />
       </main>
