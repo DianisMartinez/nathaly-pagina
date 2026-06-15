@@ -3,12 +3,12 @@ import React from 'react'
 export default function Marquee() {
   const items = [
     'ESTRATEGIA DIGITAL',
-    'UGC CREATOR',
-    'NARRATIVA EDITORIAL',
+    'META ADS',
+    'CONTENIDO UGC',
     'MARCA PERSONAL',
-    'STORYTELLING',
-    'MARKETING DE CONTENIDOS',
-    'COMUNICACIÓN ESTRATÉGICA'
+    'CAPACITACIONES',
+    'DECISIONES BASADAS EN DATOS',
+    'CRECIMIENTO DE NEGOCIOS'
   ]
 
   // Duplicamos los elementos para asegurar una transición sin saltos

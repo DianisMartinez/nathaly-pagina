@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import heroImage from './assets/nataly-hero.jpeg'
-import editorialImage from './assets/nataly-editorial.jpeg'
+import heroImage from './assets/nataly-hero.webp'
 
 import ThemeToggle from './components/ThemeToggle'
 import TestimonialCarousel from './components/TestimonialCarousel'
@@ -11,145 +10,164 @@ import FAQ from './components/FAQ'
 import { useScrollAnimation } from './hooks/useScrollAnimation'
 
 const profile = {
-  name: 'Nathaly Gómez',
-  headline: 'Periodista especializada en marketing, creadora UGC y consultora en estrategia de contenido digital',
-  location: 'Gran Santiago, Chile',
+  name: 'Insight Estrategia Digital',
+  headline: 'Estrategias digitales que impulsan el crecimiento de empresas y marcas personales',
+  location: 'Chile',
   intro:
-    'Una propuesta que mezcla mirada editorial, marketing, UGC y marca personal para marcas y profesionales que necesitan contenido con intencion, presencia visual y una voz clara.',
+    'Combinamos estrategia, contenido y publicidad para atraer clientes, fortalecer el posicionamiento y generar resultados medibles.',
   bio:
-    'Nataly desarrolla narrativas digitales desde una base periodistica, combinando claridad de mensaje, criterio de marca y formatos pensados para redes, posicionamiento y comunicacion estrategica.',
-  audience:
-    'Este portfolio esta planteado para presentar su trabajo a marcas, founders y equipos de marketing que buscan contenido, UGC, marca personal y comunicacion con una voz consistente.',
+    'Periodista especializada en estrategia digital, contenido y crecimiento de negocios. Experiencia en empresas, comunicación corporativa y proyectos de marketing digital.',
   email: 'nathalygomez901@gmail.com',
   instagram: 'https://www.instagram.com/nathaly.gomezm/',
   tiktok: 'https://www.tiktok.com/@nathaly.gomezm?lang=es-419',
   linkedin: 'https://www.linkedin.com/in/nataly-g%C3%B3mez-martinez-6183b4235/',
   company: 'Insight Estrategia Digital',
   education: 'Universidad Finis Terrae',
-  mediaKitLabel: 'Disponible para estrategia de contenido, UGC y marca personal'
+  mediaKitLabel: 'Estrategia · Contenido · Publicidad'
 }
-
-const stats = [
-  { value: 'TikTok', label: 'video corto y colaboraciones' },
-  { value: 'Instagram', label: 'presencia visual y editorial' },
-  { value: 'UGC', label: 'contenido para social y pauta' },
-  { value: 'LinkedIn', label: 'marca personal y autoridad' }
-]
-
-const brandNotes = [
-  'Contenido digital',
-  'UGC',
-  'Marca personal',
-  'Comunicacion corporativa'
-]
-
-const highlights = [
-  {
-    title: 'Estrategia de contenido',
-    type: 'Narrativa + plan editorial',
-    result: 'Mensajes mas claros y contenido con direccion',
-    description:
-      'Bajada de tono, pilares de contenido y enfoque de publicacion para marcas o perfiles que necesitan consistencia en su presencia digital.',
-    metric: 'Posicionamiento de marca'
-  },
-  {
-    title: 'UGC para marcas',
-    type: 'Video corto + piezas sociales',
-    result: 'Contenido util para organic y pauta',
-    description:
-      'Piezas pensadas para mostrar producto o servicio con naturalidad, criterio visual y una voz cercana pero profesional.',
-    metric: 'Formato adaptable'
-  },
-  {
-    title: 'Marca personal',
-    type: 'Perfil profesional + contenido',
-    result: 'Autoridad digital con voz propia',
-    description:
-      'Trabajo de posicionamiento para especialistas y profesionales que necesitan verse solidos, actuales y coherentes en canales como LinkedIn.',
-    metric: 'Perfil profesional'
-  }
-]
 
 const services = [
   {
-    title: 'Estrategia de contenido',
-    text: 'Definicion de pilares, tono, enfoques narrativos y estructura editorial para ordenar la presencia digital de una marca o perfil.'
+    title: 'Estrategia Digital',
+    text: 'Diagnóstico y planificación para acelerar el crecimiento. Analizamos el negocio, el mercado y los objetivos para diseñar una estrategia con dirección clara.',
+    icon: '📊'
   },
   {
-    title: 'UGC',
-    text: 'Piezas pensadas para redes y pauta, con enfoque en naturalidad, claridad del mensaje y adaptacion a objetivos de marketing.'
+    title: 'Meta Ads',
+    text: 'Campañas enfocadas en generar oportunidades comerciales. Segmentación, creatividades y optimización basada en datos para convertir inversión en resultados.',
+    icon: '🎯'
   },
   {
-    title: 'Marca personal',
-    text: 'Construccion de presencia digital para profesionales, founders o vocerias que necesitan posicionamiento, confianza y consistencia.'
+    title: 'Contenido UGC',
+    text: 'Videos diseñados para captar atención y convertir. Contenido pensado según el objetivo de cada etapa: posicionamiento, captación, confianza o conversión.',
+    icon: '🎬'
   },
   {
-    title: 'Comunicacion corporativa',
-    text: 'Apoyo en mensajes y contenido para empresas que buscan ordenar su narrativa interna o externa con criterio estrategico.'
+    title: 'Marca Personal',
+    text: 'Posicionamiento para emprendedoras, profesionales y creadoras. Mentorías, auditorías y estrategia de contenido para construir autoridad digital con voz propia.',
+    icon: '✨'
   },
   {
-    title: 'Storytelling de marca',
-    text: 'Desarrollo de relatos y enfoques que ayudan a traducir productos, servicios o expertise en contenido entendible y atractivo.'
+    title: 'Capacitaciones',
+    text: 'Formación en contenido, marketing y marca personal. Talleres y asesorías para equipos y profesionales que quieren dominar su presencia digital.',
+    icon: '📚'
+  }
+]
+
+const differentials = [
+  {
+    icon: '📊',
+    title: 'Experiencia dentro de empresas',
+    text: 'Nuestra visión va más allá del marketing. La experiencia en comunicación corporativa y proyectos empresariales nos permite comprender cómo se toman decisiones dentro de una organización y alinear el marketing con objetivos reales de negocio.'
   },
   {
-    title: 'Cobertura y adaptacion social',
-    text: 'Versiones de contenido para distintos formatos y momentos de campana, manteniendo coherencia visual y de mensaje.'
+    icon: '🎯',
+    title: 'Contenido con propósito',
+    text: 'No todos los videos sirven para vender. Diseñamos contenido según el objetivo de cada etapa: posicionamiento, captación, confianza o conversión.'
+  },
+  {
+    icon: '📈',
+    title: 'Decisiones basadas en datos',
+    text: 'Cada estrategia se construye a partir de análisis, medición y optimización constante. No actuamos por intuición, actuamos por evidencia.'
+  }
+]
+
+const clientGroups = [
+  {
+    category: 'Corporativo / Multinacional',
+    clients: ['Electrolux', 'Fensa', 'Mademsa', 'Somela']
+  },
+  {
+    category: 'Empresas',
+    clients: ['Clínica Art', 'O2 Aesthetics', 'Bubble & Coffee', 'Lofts Angachilla']
+  },
+  {
+    category: 'UGC / Marca Personal',
+    clients: ['Eucerin', 'Gillette Venus', 'Avon', 'Temu', 'Pullman']
   }
 ]
 
 const testimonials = [
   {
     quote:
-      'Una mirada periodistica permite que el contenido no solo se vea bien: tambien dice algo claro, ordenado y estrategico.',
-    author: 'Diferencial',
-    role: 'Narrativa con foco de marca'
+      'No creamos contenido por crear contenido ni lanzamos campañas sin una dirección clara. Analizamos el negocio, el mercado y los objetivos para diseñar estrategias enfocadas en crecimiento.',
+    author: 'Insight',
+    role: 'Estrategia antes que ejecución'
   },
   {
     quote:
-      'La combinacion entre marketing, UGC y marca personal hace que la propuesta funcione tanto para empresas como para perfiles profesionales.',
-    author: 'Enfoque',
-    role: 'Contenido adaptable'
+      'La combinación entre experiencia corporativa, estrategia digital y creación de contenido hace que nuestra propuesta funcione tanto para empresas como para marcas personales.',
+    author: 'Insight',
+    role: 'Perspectiva única'
   },
   {
     quote:
-      'Trabajar con Nataly es tener la seguridad de que el mensaje va a llegar claro, con identidad y con un proposito estrategico detras.',
-    author: 'Colaborador',
-    role: 'Marketing digital'
+      'Cada estrategia se construye a partir de análisis, medición y optimización constante. Trabajar con datos reales es lo que diferencia a Insight de una agencia tradicional.',
+    author: 'Insight',
+    role: 'Datos y resultados'
   }
-]
-
-const deliverables = [
-  'Estrategia de contenido digital',
-  'Guiones y storytelling para video corto',
-  'Piezas UGC para marca y pauta',
-  'Desarrollo de marca personal',
-  'Mensajes para comunicacion corporativa'
 ]
 
 const collaborationVideos = [
   {
-    title: 'Colaboracion destacada',
-    subtitle: 'TikTok x contenido de marca',
+    title: 'UGC · Eucerin',
+    subtitle: 'Contenido para marca de skincare',
     embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
-    postUrl:
-      'https://www.tiktok.com/@nathaly.gomezm/video/7623565697842531602?lang=es-419',
-    description:
-      'Ejemplo de contenido publicado desde su perfil, ideal para mostrar tono, presencia en camara y adaptacion a formatos de marca.',
-    category: 'TikTok'
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm/video/7623565697842531602?lang=es-419',
+    description: 'UGC para marca de skincare con tono cercano y enfoque de conversión.',
+    category: 'UGC'
   },
   {
-    title: 'Video colaborativo',
-    subtitle: 'TikTok',
+    title: 'UGC · Gillette Venus',
+    subtitle: 'Contenido para marca internacional',
     embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
-    postUrl:
-      'https://www.tiktok.com/@nathaly.gomezm/video/7606451765197671687?lang=es-419',
-    description:
-      'Segundo ejemplo de contenido en TikTok mostrando versatilidad y presencia en camara.',
-    category: 'TikTok'
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm/video/7606451765197671687?lang=es-419',
+    description: 'Pieza UGC para campaña internacional con foco en captación.',
+    category: 'UGC'
+  },
+  {
+    title: 'UGC · Avon',
+    subtitle: 'Contenido de producto',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
+    description: 'Video UGC para campaña de producto con alta tasa de retención.',
+    category: 'UGC'
+  },
+  {
+    title: 'Marca Personal · Posicionamiento',
+    subtitle: 'Estrategia de contenido propio',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm/video/7606451765197671687?lang=es-419',
+    description: 'Ejemplo de contenido de marca personal aplicando pilares de posicionamiento.',
+    category: 'Marca Personal'
+  },
+  {
+    title: 'Marca Personal · Autoridad',
+    subtitle: 'Contenido de expertise',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
+    description: 'Video de marca personal enfocado en construir autoridad y confianza.',
+    category: 'Marca Personal'
+  },
+  {
+    title: 'Meta Ads · Clínica Art',
+    subtitle: 'Campaña de captación',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
+    description: 'Creatividad para Meta Ads enfocada en generar consultas y leads.',
+    category: 'Meta Ads'
+  },
+  {
+    title: 'Meta Ads · O2 Aesthetics',
+    subtitle: 'Campaña de conversión',
+    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
+    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
+    description: 'Anuncio de Meta Ads optimizado para conversión con creatividad UGC.',
+    category: 'Meta Ads'
   }
 ]
 
-const videoCategories = ['TikTok', 'Instagram', 'UGC', 'LinkedIn']
+const videoCategories = ['UGC', 'Marca Personal', 'Meta Ads']
 
 const socialLinks = [
   { label: 'Instagram', href: profile.instagram },
@@ -158,24 +176,14 @@ const socialLinks = [
   { label: 'Correo', href: `mailto:${profile.email}` }
 ]
 
-function SectionHeading({ kicker, title, text }) {
-  return (
-    <div className="section-heading">
-      <span className="eyebrow">{kicker}</span>
-      <div>
-        <h2>{title}</h2>
-        <p>{text}</p>
-      </div>
-    </div>
-  )
-}
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [heroRef, heroVisible] = useScrollAnimation()
-  const [perfilRef, perfilVisible] = useScrollAnimation()
-  const [portfolioRef, portfolioVisible] = useScrollAnimation()
+  const [problemaRef, problemaVisible] = useScrollAnimation()
   const [serviciosRef, serviciosVisible] = useScrollAnimation()
+  const [porqueRef, porqueVisible] = useScrollAnimation()
+  const [clientesRef, clientesVisible] = useScrollAnimation()
+  const [sobreRef, sobreVisible] = useScrollAnimation()
 
   return (
     <div className="site-shell">
@@ -185,15 +193,14 @@ function App() {
       <header className="topbar">
         <div className="container nav">
           <a className="brand" href="#inicio">
-            {profile.name}
+            <img src="/1.webp" alt="Insight Estrategia Digital" />
           </a>
 
           <div className="nav-right">
             <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`} aria-label="Principal">
-              <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
-              <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre mí</a>
+              <a href="#sobre-mi" onClick={() => setMenuOpen(false)}>Sobre mí</a>
               <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
-              <a href="#casos" onClick={() => setMenuOpen(false)}>Casos de éxito</a>
+              <a href="#clientes" onClick={() => setMenuOpen(false)}>Casos de éxito</a>
               <a href="#marca-personal" onClick={() => setMenuOpen(false)}>Marca Personal</a>
               <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
             </nav>
@@ -215,61 +222,77 @@ function App() {
       </header>
 
       <main>
+        {/* Sección 1: Hero */}
         <section className="section hero-section" id="inicio" ref={heroRef}>
           <div className="container hero-grid">
             <div className={`hero-copy fade-in ${heroVisible ? 'visible' : ''}`}>
-              <span className="eyebrow">Portfolio / contenido y estrategia</span>
+              <span className="eyebrow">Insight Estrategia Digital</span>
               <p className="hero-kicker">{profile.location}</p>
               <h1>
-                Estrategias digitales que impulsan el crecimiento de empresas y marcas personales.
+                Estrategias digitales que impulsan el crecimiento de <span>empresas y marcas personales.</span>
               </h1>
               <p className="hero-text">
-                Combinamos estrategia, contenido y publicidad para atraer clientes, fortalecer el
-                posicionamiento y generar resultados medibles.
+                {profile.intro}
               </p>
 
               <div className="hero-actions">
-                <a className="button button-primary" href="#contacto" aria-label="Agenda una reunión">
-                  📅 Agenda una reunión
+                <a className="button button-primary" href="#contacto">
+                  Agenda una reunión
                 </a>
-                <a className="button button-secondary" href="#casos" aria-label="Ver casos de éxito">
-                  📊 Ver casos de éxito
+                <a className="button button-secondary" href="#clientes">
+                  Ver casos de éxito
                 </a>
               </div>
-
-              <ul className="tag-list" aria-label="Formatos destacados">
-                {brandNotes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
             </div>
 
             <div className={`hero-panel fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <div className="hero-card">
-                <div className="availability-pill">{profile.mediaKitLabel}</div>
-
-                <div className="portrait-card" aria-hidden="true">
-                  <div className="portrait-frame">
-                    <img
-                      className="portrait-image"
-                      src={heroImage}
-                      alt="Retrato principal de Nataly Gomez Martinez"
-                    />
-                  </div>
+                <div style={{ textAlign: 'center', padding: '1rem 1rem 0.5rem' }}>
+                  <img
+                    src="/1.webp"
+                    alt="Insight Estrategia Digital"
+                    style={{ width: '100%', maxWidth: '260px', height: 'auto' }}
+                  />
                 </div>
 
-                <div className="hero-card-copy">
-                  <strong>{profile.name}</strong>
-                  <p>{profile.bio}</p>
-                </div>
-
-                <div className="stats-grid">
-                  {stats.map((stat) => (
-                    <article className="stat-card" key={stat.label}>
-                      <strong>{stat.value}</strong>
-                      <span>{stat.label}</span>
-                    </article>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: '0.5rem 0' }}>
+                  {[
+                    { icon: '📊', label: 'Estrategia Digital', desc: 'Diagnóstico y planificación enfocada en crecimiento' },
+                    { icon: '🎯', label: 'Meta Ads', desc: 'Campañas que generan oportunidades comerciales' },
+                    { icon: '🎬', label: 'Contenido UGC', desc: 'Videos que captan atención y convierten' },
+                  ].map((item) => (
+                    <div key={item.label} style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.75rem',
+                      padding: '0.75rem',
+                      background: 'rgba(255,255,255,0.35)',
+                      borderRadius: '12px'
+                    }}>
+                      <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>{item.icon}</span>
+                      <div>
+                        <strong style={{ fontSize: '0.9rem', display: 'block' }}>{item.label}</strong>
+                        <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>{item.desc}</span>
+                      </div>
+                    </div>
                   ))}
+                </div>
+
+                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+                  <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.5, marginBottom: '0.5rem' }}>
+                    Han confiado en nosotros
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                    {['Electrolux', 'Eucerin', 'Gillette Venus', 'Avon', 'Pullman', 'Clínica Art'].map((c) => (
+                      <span key={c} style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        padding: '0.25rem 0.6rem',
+                        background: 'rgba(0,0,0,0.06)',
+                        borderRadius: '999px'
+                      }}>{c}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -278,78 +301,59 @@ function App() {
 
         <Marquee />
 
-        <section className="section" id="sobre" ref={perfilRef}>
+        {/* Sección 2: El problema */}
+        <section className="section" id="problema" ref={problemaRef}>
           <div className="container">
-            <div className={`section-heading fade-in ${perfilVisible ? 'visible' : ''}`}>
-              <span className="eyebrow">Perfil</span>
+            <div className={`section-heading fade-in ${problemaVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">El problema</span>
               <div>
-                <h2>Una propuesta que cruza periodismo, marketing y construcción de presencia digital.</h2>
+                <h2>El problema no es publicar más. Es tener una estrategia.</h2>
                 <p>
-                  Con base periodística y visión estratégica, una propuesta que une marketing, UGC
-                  y posicionamiento digital en una oferta coherente y adaptable.
+                  Muchas empresas invierten en contenido y publicidad sin una dirección clara.
                 </p>
               </div>
             </div>
 
-            <div className={`bento-container fade-in-up ${perfilVisible ? 'visible' : ''}`}>
-              {/* Card 1: Mi Historia (Large - spans 2 columns) */}
-              <article className="bento-card bento-card--large">
+            <div className={`bento-container fade-in-up ${problemaVisible ? 'visible' : ''}`} style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+              <article className="bento-card bento-card--large" style={{ gridColumn: 'span 2' }}>
                 <div className="bento-card-header">
-                  <span className="bento-card-icon">✍️</span>
-                  <h3>Mi historia y trayectoria</h3>
+                  <span className="bento-card-icon">⚠️</span>
+                  <h3>¿Te suena familiar?</h3>
                 </div>
-                <p>
-                  Soy Nathaly Gómez, periodista especializada en comunicación digital, estrategia de contenido y crecimiento de negocios.
-                  Mi experiencia combina comunicación corporativa, estrategia digital y creación de contenido, trabajando dentro de empresas y con marcas.
-                </p>
-                <p>
-                  He sido parte de equipos de comunicaciones en multinacionales como Electrolux Group Chile y trabajé como periodista corporativa para un holding de nueve empresas en Santiago.
-                  Además, desarrollé proyectos de estrategia digital y colaboré como creadora con marcas nacionales e internacionales como Eucerin, Gillette Venus, Avon, Temu, Pullman y Bigbox.
-                </p>
-                <p style={{ fontStyle: 'italic', color: 'var(--accent-deep)', marginTop: '0.5rem' }}>
-                  Mi enfoque combina rigor editorial y resultados comerciales: estrategia, contenido y publicidad basada en datos.
+                <ul className="detail-list" style={{ fontSize: '1.05rem', lineHeight: '2' }}>
+                  <li>No todos los videos generan resultados.</li>
+                  <li>No todas las campañas convierten.</li>
+                  <li>Más publicaciones no siempre significan más clientes.</li>
+                </ul>
+                <p style={{ marginTop: '1.2rem', fontStyle: 'italic', color: 'var(--accent-deep)' }}>
+                  En Insight analizamos el negocio completo para diseñar estrategias enfocadas en crecimiento.
                 </p>
               </article>
 
-              {/* Card 2: Editorial Portrait (Portrait - spans 2 rows) */}
-              <div className="bento-card bento-card--portrait">
-                <div className="bento-portrait-frame">
-                  <img
-                    className="bento-portrait-img"
-                    src={editorialImage}
-                    alt="Fotografía editorial de Nataly Gomez Martinez"
-                  />
-                  <div className="bento-portrait-overlay">
-                    <h4>Nataly Gómez M.</h4>
-                    <p>Consultora & Creadora UGC</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3: Cómo te ayudo (Medium) */}
               <article className="bento-card bento-card--medium">
                 <div className="bento-card-header">
-                  <span className="bento-card-icon">🚀</span>
-                  <h3>Cómo te puedo ayudar</h3>
+                  <span className="bento-card-icon">💡</span>
+                  <h3>Nuestra solución</h3>
                 </div>
                 <p>
-                  Te acompaño a construir una presencia digital sólida, con contenido que conecta y convierte.
+                  Antes de ejecutar, analizamos. Antes de publicar, estrategizamos. Cada acción parte de un diagnóstico real de tu negocio, mercado y objetivos.
                 </p>
                 <ul className="detail-list" style={{ marginTop: '0.8rem', fontSize: '0.9rem' }}>
-                  {deliverables.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
+                  <li>Diagnóstico de negocio y mercado</li>
+                  <li>Estrategia con dirección clara</li>
+                  <li>Contenido con propósito definido</li>
+                  <li>Publicidad orientada a conversión</li>
+                  <li>Medición y optimización constante</li>
                 </ul>
               </article>
 
-              {/* Card 4: Redes y Social Quicklinks (Socials) */}
               <article className="bento-card bento-card--socials">
                 <div>
                   <div className="bento-card-header">
                     <span className="bento-card-icon">📲</span>
-                    <h3>Presencia Digital</h3>
+                    <h3>Síguenos</h3>
                   </div>
-                  <p>Canales de contenido y redes donde puedes contactarme o ver mi propuesta visual.</p>
+                  <p>Conecta con Insight en redes sociales y conoce nuestra estrategia en acción.</p>
                 </div>
                 <div className="bento-social-grid">
                   <a href={profile.instagram} target="_blank" rel="noreferrer" className="bento-social-item">
@@ -362,11 +366,11 @@ function App() {
                   </a>
                   <a href={profile.linkedin} target="_blank" rel="noreferrer" className="bento-social-item">
                     <span className="bento-social-name">LinkedIn</span>
-                    <span className="bento-social-handle">Nataly Gómez</span>
+                    <span className="bento-social-handle">Nathaly Gómez</span>
                   </a>
                   <a href={`mailto:${profile.email}`} className="bento-social-item">
                     <span className="bento-social-name">Email</span>
-                    <span className="bento-social-handle">Escríbeme</span>
+                    <span className="bento-social-handle">Escríbenos</span>
                   </a>
                 </div>
               </article>
@@ -374,50 +378,15 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="portfolio" ref={portfolioRef}>
-          <div className="container">
-            <div className={`section-heading fade-in ${portfolioVisible ? 'visible' : ''}`}>
-              <span className="eyebrow">Portfolio</span>
-              <div>
-                <h2>Tres focos de trabajo que definen como puede acompañar a marcas y perfiles digitales.</h2>
-                <p>
-                  Cada área de trabajo traduce su experiencia en resultados concretos para marcas,
-                  founders y equipos de marketing.
-                </p>
-              </div>
-            </div>
-
-            <div className="highlights-grid">
-              {highlights.map((item, i) => (
-                <article
-                  className={`highlight-card fade-in-up ${portfolioVisible ? 'visible' : ''}`}
-                  key={item.title}
-                  style={{ transitionDelay: `${i * 100}ms` }}
-                >
-                  <div className="card-topline">
-                    <span>{item.type}</span>
-                    <span>{item.metric}</span>
-                  </div>
-                  <h3>{item.title}</h3>
-                  <strong className="highlight-result">{item.result}</strong>
-                  <p>{item.description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <VideoGallery videos={collaborationVideos} categories={videoCategories} />
-
+        {/* Sección 3: Qué hacemos / Servicios */}
         <section className="section" id="servicios" ref={serviciosRef}>
           <div className="container">
             <div className={`section-heading fade-in ${serviciosVisible ? 'visible' : ''}`}>
               <span className="eyebrow">Servicios</span>
               <div>
-                <h2>Una oferta mas clara para marcas, equipos de marketing y perfiles profesionales.</h2>
+                <h2>Qué hacemos</h2>
                 <p>
-                  Servicios diseñados para marcas, founders y equipos de marketing que quieren
-                  contenido con dirección, coherencia y propósito.
+                  Una oferta integrada de estrategia, contenido y publicidad para hacer crecer tu negocio o marca personal.
                 </p>
               </div>
             </div>
@@ -429,6 +398,7 @@ function App() {
                   key={service.title}
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
+                  <span style={{ fontSize: '2rem', display: 'block', marginBottom: '0.75rem' }}>{service.icon}</span>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
                 </article>
@@ -437,34 +407,218 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="casos">
+        {/* Sección 4: Por qué Insight */}
+        <section className="section" id="por-que" ref={porqueRef}>
           <div className="container">
-            <div className="section-heading">
-              <span className="eyebrow">Casos de éxito</span>
+            <div className={`section-heading fade-in ${porqueVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">Nuestro diferencial</span>
               <div>
-                <h2>Empresas y marcas que han confiado en mi trabajo</h2>
-                <p>Casos con diagnóstico, estrategia aplicada y resultados medibles.</p>
+                <h2>¿Por qué Insight?</h2>
+                <p>
+                  Estrategia antes que ejecución. No creamos contenido por crear contenido ni lanzamos campañas sin una dirección clara.
+                </p>
               </div>
             </div>
 
-            <TestimonialCarousel items={testimonials} />
+            <div className="highlights-grid">
+              {differentials.map((item, i) => (
+                <article
+                  className={`highlight-card fade-in-up ${porqueVisible ? 'visible' : ''}`}
+                  key={item.title}
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                >
+                  <div className="card-topline">
+                    <span style={{ fontSize: '1.5rem' }}>{item.icon}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Sección 5: Casos de éxito / Clientes */}
+        <section className="section" id="clientes" ref={clientesRef}>
+          <div className="container">
+            <div className={`section-heading fade-in ${clientesVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">Casos de éxito</span>
+              <div>
+                <h2>Empresas y marcas que han confiado en mi trabajo</h2>
+                <p>
+                  Experiencia real trabajando con empresas multinacionales, pymes y marcas personales en distintos rubros.
+                </p>
+              </div>
+            </div>
+
+            <div className={`fade-in-up ${clientesVisible ? 'visible' : ''}`}>
+              {clientGroups.map((group, gi) => (
+                <div key={group.category} style={{ marginBottom: '2.5rem' }}>
+                  <h4 style={{
+                    fontSize: '0.8rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--muted)',
+                    marginBottom: '1rem'
+                  }}>
+                    {group.category}
+                  </h4>
+                  <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '0.75rem' }}>
+                    {group.clients.map((client, ci) => (
+                      <div
+                        key={client}
+                        className={`service-card fade-in-up ${clientesVisible ? 'visible' : ''}`}
+                        style={{
+                          transitionDelay: `${(gi * 4 + ci) * 60}ms`,
+                          textAlign: 'center',
+                          padding: '1.2rem',
+                          fontWeight: 700,
+                          fontSize: '0.95rem'
+                        }}
+                      >
+                        {client}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <VideoGallery videos={collaborationVideos} categories={videoCategories} />
+
+        <TestimonialCarousel items={testimonials} />
+
+        {/* Sección 6: Sobre Nathaly */}
+        <section className="section" id="sobre-mi" ref={sobreRef}>
+          <div className="container">
+            <div className={`section-heading fade-in ${sobreVisible ? 'visible' : ''}`}>
+              <span className="eyebrow">Sobre mí</span>
+              <div>
+                <h2>Soy Nathaly Gómez</h2>
+                <p>
+                  Periodista de la Universidad Finis Terrae especializada en comunicación digital, estrategia de contenido y crecimiento de negocios.
+                </p>
+              </div>
+            </div>
+
+            <div className={`bento-container fade-in-up ${sobreVisible ? 'visible' : ''}`}>
+              <article className="bento-card bento-card--large">
+                <div className="bento-card-header">
+                  <span className="bento-card-icon">👩‍💼</span>
+                  <h3>Mi trayectoria</h3>
+                </div>
+                <p>
+                  Mi experiencia combina tres perspectivas poco comunes en una misma profesional: <strong>comunicación corporativa, estrategia digital y creación de contenido.</strong>
+                </p>
+                <p>
+                  He trabajado en empresas multinacionales como Electrolux Group Chile en el área de comunicaciones, además de desempeñarme como periodista corporativa para un holding de nueve empresas en Santiago.
+                </p>
+                <p>
+                  Paralelamente, he desarrollado proyectos de estrategia digital para empresas de distintos rubros y colaborado como creadora de contenido con marcas nacionales e internacionales como Eucerin, Gillette Venus, Avon, Temu, Pullman Vitacura, Adolfo Domínguez y Bigbox, entre otras.
+                </p>
+                <p style={{ fontStyle: 'italic', color: 'var(--accent-deep)', marginTop: '0.5rem' }}>
+                  Hoy lidero Insight Estrategia Digital, donde ayudo a empresas y marcas personales a crecer mediante estrategia, contenido y publicidad basada en datos.
+                </p>
+                <div style={{ marginTop: '1.5rem' }}>
+                  <a className="button button-primary" href="#contacto">
+                    Conoce mi trayectoria
+                  </a>
+                </div>
+              </article>
+
+              <div className="bento-card bento-card--portrait">
+                <div className="bento-portrait-frame">
+                  <img
+                    className="bento-portrait-img"
+                    src={heroImage}
+                    alt="Nathaly Gómez - Insight Estrategia Digital"
+                  />
+                  <div className="bento-portrait-overlay">
+                    <h4>Nathaly Gómez</h4>
+                    <p>Fundadora · Insight</p>
+                  </div>
+                </div>
+              </div>
+
+              <article className="bento-card bento-card--medium" id="marca-personal">
+                <div className="bento-card-header">
+                  <span className="bento-card-icon">✨</span>
+                  <h3>Marca Personal</h3>
+                </div>
+                <p>Para emprendedoras, creadoras de contenido, influencers y profesionales que quieren posicionarse con estrategia.</p>
+                <ul className="detail-list" style={{ marginTop: '0.8rem', fontSize: '0.9rem' }}>
+                  <li>Mentorías personalizadas</li>
+                  <li>Auditorías de perfil digital</li>
+                  <li>Estrategia de posicionamiento</li>
+                  <li>Monetización de contenido</li>
+                  <li>Estrategia de contenido</li>
+                </ul>
+              </article>
+
+              <article className="bento-card bento-card--socials">
+                <div>
+                  <div className="bento-card-header">
+                    <span className="bento-card-icon">🎓</span>
+                    <h3>Formación</h3>
+                  </div>
+                  <p>Base académica y certificaciones que respaldan cada estrategia.</p>
+                </div>
+                <div className="bento-social-grid">
+                  <div className="bento-social-item">
+                    <span className="bento-social-name">Universidad</span>
+                    <span className="bento-social-handle">Finis Terrae</span>
+                  </div>
+                  <div className="bento-social-item">
+                    <span className="bento-social-name">Especialización</span>
+                    <span className="bento-social-handle">Comunicación Digital</span>
+                  </div>
+                  <div className="bento-social-item">
+                    <span className="bento-social-name">Experiencia</span>
+                    <span className="bento-social-handle">Empresas + Agencia</span>
+                  </div>
+                  <div className="bento-social-item">
+                    <span className="bento-social-name">Foco</span>
+                    <span className="bento-social-handle">Estrategia & Datos</span>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
 
         <FAQ />
 
+        {/* Sección 7: CTA Final + Contacto */}
+        <section className="section" id="cta-final" style={{ textAlign: 'center', padding: '5rem 0' }}>
+          <div className="container" style={{ maxWidth: '640px' }}>
+            <span className="eyebrow">¿Listo para crecer?</span>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', marginTop: '0.5rem' }}>
+              ¿Listo para potenciar tu crecimiento digital?
+            </h2>
+            <p style={{ fontSize: '1.1rem', color: 'var(--muted)', margin: '1rem 0 2rem' }}>
+              Agenda una reunión y diseñemos juntos la estrategia que tu negocio necesita.
+            </p>
+            <a className="button button-primary" href="#contacto" style={{ fontSize: '1rem', padding: '1rem 2rem' }}>
+              Agenda una reunión
+            </a>
+          </div>
+        </section>
+
         <ContactForm profile={profile} />
       </main>
 
       <a className="float-cta" href="#contacto" aria-label="Ir a contacto">
-        Contáctame
+        Agenda reunión
       </a>
 
       <footer className="footer">
         <div className="container footer-content">
           <div className="footer-left">
             <span>{profile.name}</span>
-            <p>Portafolio digital para contenido, marca personal y comunicacion estrategica.</p>
+            <p>Estrategia, contenido y publicidad para empresas y marcas personales.</p>
           </div>
           <div className="footer-social">
             {socialLinks.map((link) => (

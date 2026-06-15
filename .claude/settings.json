@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/dianagomez/nathaly-pagina branch --show-current)",
+      "Bash(npm run *)"
+    ]
+  }
+}

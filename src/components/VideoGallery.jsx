@@ -49,7 +49,6 @@ export default function VideoGallery({ videos, categories }) {
               onClick={() => setActiveVideo(video)}
             >
               <div className="video-thumbnail-wrapper">
-                {/* Visual placeholder with dynamic visual styling */}
                 <div className="video-placeholder-bg">
                   <div className="video-glow-effect" />
                   <div className="video-placeholder-info">
@@ -58,8 +57,7 @@ export default function VideoGallery({ videos, categories }) {
                     <p className="video-placeholder-desc">{video.subtitle}</p>
                   </div>
                 </div>
-                
-                {/* Play Button Overlay */}
+
                 <div className="video-play-overlay">
                   <div className="play-button-circle">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -68,20 +66,15 @@ export default function VideoGallery({ videos, categories }) {
                   </div>
                   <span className="play-text">Ver Video</span>
                 </div>
-              </div>
 
-              <div className="video-copy">
-                <div className="card-topline">
-                  <span>{video.subtitle}</span>
-                  <span className="video-card-link" onClick={(e) => e.stopPropagation()}>
-                    <a href={video.postUrl} target="_blank" rel="noreferrer">
-                      Abrir original ↗
-                    </a>
-                  </span>
-                </div>
-                <h3>{video.title}</h3>
-                <span className="video-category-tag">{video.category}</span>
-                <p>{video.description}</p>
+                <span
+                  className="video-open-link"
+                  onClick={(e) => { e.stopPropagation() }}
+                >
+                  <a href={video.postUrl} target="_blank" rel="noreferrer">
+                    Abrir ↗
+                  </a>
+                </span>
               </div>
             </article>
           ))}

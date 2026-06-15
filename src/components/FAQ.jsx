@@ -3,24 +3,28 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const faqData = [
   {
-    question: '¿Qué es el contenido UGC y por qué lo necesita mi marca?',
-    answer: 'El contenido generado por el usuario (UGC) es material visual creado de forma orgánica y auténtica que emula la recomendación de un amigo. A diferencia de la publicidad corporativa tradicional, el UGC conecta mejor con las audiencias en TikTok e Instagram, aumentando la confianza y la tasa de conversión.'
+    question: '¿Qué diferencia a Insight de otras agencias de marketing digital?',
+    answer: 'En Insight la estrategia va antes que la ejecución. No creamos contenido por crear contenido ni lanzamos campañas sin una dirección clara. Analizamos el negocio, el mercado y los objetivos para diseñar estrategias enfocadas en crecimiento real. Nuestra experiencia en comunicación corporativa dentro de empresas nos permite alinear el marketing con los objetivos reales del negocio.'
   },
   {
-    question: '¿Cómo se desarrolla una estrategia de contenido digital?',
-    answer: 'El proceso inicia con una sesión de diagnóstico. Analizo la propuesta de valor de tu negocio, tu cliente ideal y la competencia. A partir de ahí, defino los pilares de contenido, la estructura de guiones, el tono de voz y una pauta de publicación realista y enfocada a resultados.'
+    question: '¿Cómo es el proceso para comenzar a trabajar juntos?',
+    answer: 'Comenzamos con una reunión de diagnóstico donde analizamos tu negocio, tu mercado y tus objetivos. A partir de ese análisis diseñamos una estrategia personalizada con acciones concretas. Luego pasamos a la ejecución: contenido, campañas o ambas, con medición y optimización constante.'
   },
   {
-    question: '¿Cuál es el flujo de trabajo para la creación de videos?',
-    answer: 'Es un flujo colaborativo y transparente: 1) Definimos el objetivo y el gancho del video. 2) Redacto el guion detallado (incluyendo ganchos y llamados a la acción) para tu aprobación. 3) Realizo la grabación y edición profesional. 4) Te entrego la pieza final lista para su publicación.'
+    question: '¿Trabajan solo con empresas o también con marcas personales?',
+    answer: 'Trabajamos con ambas. Nuestra propuesta está diseñada para vender simultáneamente a empresas (con ticket alto) y a marcas personales y mentorías (ticket medio). El mensaje es siempre el mismo: ayudamos a empresas y marcas personales a crecer mediante estrategia, contenido y publicidad basada en datos.'
   },
   {
-    question: '¿Trabajas por proyectos únicos o bajo modalidad mensual?',
-    answer: 'De ambas formas. Para marcas que necesitan un empuje inicial o tienen campañas específicas, realizamos proyectos puntuales. Para marcas que buscan consistencia y crecimiento sostenido en el tiempo, recomiendo la suscripción o fee mensual (retainer) con entregables definidos.'
+    question: '¿Qué incluye el servicio de Meta Ads?',
+    answer: 'El servicio incluye diagnóstico de cuenta, definición de objetivos y audiencias, creación de creatividades y copies, configuración y lanzamiento de campañas, optimización semanal y reporte de resultados. Todo está enfocado en generar oportunidades comerciales reales, no solo en métricas de vanidad.'
   },
   {
-    question: '¿Cuál es el tiempo promedio de entrega?',
-    answer: 'Las piezas UGC individuales o packs iniciales de video se entregan entre 5 y 7 días hábiles tras la aprobación del guion. Los planes editoriales y de estrategia de marca personal requieren entre 10 y 15 días hábiles debido a la fase previa de análisis en profundidad.'
+    question: '¿Qué es el contenido UGC y para qué sirve?',
+    answer: 'El contenido UGC (User Generated Content) son videos creados para parecer orgánicos y auténticos, como si fueran recomendaciones reales. Son ideales para Meta Ads porque generan mayor confianza y conversión que los anuncios tradicionales. En Insight los diseñamos según el objetivo de cada etapa: posicionamiento, captación, confianza o conversión.'
+  },
+  {
+    question: '¿Qué incluye el servicio de Marca Personal?',
+    answer: 'El servicio incluye auditoría de perfil digital, definición de posicionamiento y diferencial, estrategia de contenido personalizada, mentoría y acompañamiento. Está pensado para emprendedoras, profesionales, creadoras de contenido e influencers que quieren construir autoridad digital, posicionarse y monetizar su marca.'
   }
 ]
 
@@ -38,8 +42,8 @@ export default function FAQ() {
         <div className={`section-heading fade-in ${visible ? 'visible' : ''}`}>
           <span className="eyebrow">Preguntas Frecuentes</span>
           <div>
-            <h2>Respuestas rápidas</h2>
-            <p>Todo lo que necesitas saber antes de que empecemos a trabajar en tu estrategia digital y contenido.</p>
+            <h2>Preguntas frecuentes</h2>
+            <p>Todo lo que necesitas saber antes de que empecemos a trabajar juntos.</p>
           </div>
         </div>
 
