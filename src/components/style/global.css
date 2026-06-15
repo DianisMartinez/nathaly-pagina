@@ -1437,3 +1437,689 @@ html.dark .contact-form textarea {
     gap: 1rem;
   }
 }
+
+/* ── Marquee Infinito ── */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-deep) 100%);
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(143, 74, 51, 0.15);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 2.5rem;
+}
+
+.marquee-dot {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  margin-right: 1.2rem;
+}
+
+.marquee-text {
+  font-family: 'Manrope', sans-serif;
+  color: #fffdf8;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}
+
+/* ── Bento Grid Section Perfil ── */
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bento-card {
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(78, 55, 42, 0.08);
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1), border-color 300ms ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(127, 84, 58, 0.18);
+  border-color: rgba(201, 114, 81, 0.3);
+}
+
+.bento-card--large {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-card--portrait {
+  grid-column: span 1;
+  grid-row: span 2;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.bento-card--portrait:hover {
+  transform: translateY(-4px);
+}
+
+.bento-card--portrait:hover .bento-portrait-img {
+  transform: scale(1.03);
+}
+
+.bento-portrait-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(78, 55, 42, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.bento-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bento-portrait-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(27, 35, 47, 0.9) 0%, rgba(27, 35, 47, 0.4) 60%, transparent 100%);
+  color: #fffdf8;
+  backdrop-filter: blur(2px);
+}
+
+.bento-portrait-overlay h4 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.bento-portrait-overlay p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bento-card--medium {
+  grid-column: span 1;
+}
+
+.bento-card--socials {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.bento-social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+  transition: all 200ms ease;
+  text-align: center;
+}
+
+.bento-social-item:hover {
+  background: var(--accent);
+  color: #fffdf8;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.bento-social-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.bento-social-handle {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.bento-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.8rem;
+}
+
+.bento-card-icon {
+  font-size: 1.5rem;
+}
+
+.bento-card h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.bento-card p {
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.bento-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── FAQ Acordeón ── */
+.faq-section {
+  background: rgba(255, 252, 247, 0.4);
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 250ms ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(201, 114, 81, 0.3);
+  box-shadow: 0 12px 30px rgba(127, 84, 58, 0.06);
+}
+
+.faq-item--open {
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px rgba(127, 84, 58, 0.1);
+}
+
+.faq-question-btn {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 1.8rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.faq-question-text {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  padding-right: 1.5rem;
+}
+
+.faq-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(78, 55, 42, 0.05);
+  color: var(--text);
+  transition: all 250ms ease;
+  flex-shrink: 0;
+}
+
+.faq-icon {
+  transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.faq-item--open .faq-icon-wrapper {
+  background: var(--accent);
+  color: #fffdf8;
+}
+
+.faq-item--open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer-container {
+  overflow: hidden;
+  transition: max-height 300ms cubic-bezier(0.25, 1, 0.5, 1), opacity 250ms ease;
+}
+
+.faq-answer-content {
+  padding: 0 1.8rem 1.6rem 1.8rem;
+}
+
+.faq-answer-content p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+/* ── Video Gallery Lightbox ── */
+.video-card-interactive {
+  cursor: pointer;
+}
+
+.video-thumbnail-wrapper {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  max-height: 520px;
+  background: #111;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.video-placeholder-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1b232f 0%, #151a22 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-glow-effect {
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle, rgba(201, 114, 81, 0.18) 0%, transparent 60%);
+  animation: float-glow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float-glow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, 5%) scale(1.1);
+  }
+}
+
+.video-placeholder-info {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.video-placeholder-tag {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  backdrop-filter: blur(5px);
+}
+
+.video-placeholder-title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fffdf8;
+  line-height: 1.1;
+}
+
+.video-placeholder-desc {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 35, 47, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 300ms cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(2px);
+}
+
+.video-card-interactive:hover .video-play-overlay {
+  opacity: 1;
+}
+
+.play-button-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(201, 114, 81, 0.4);
+  transform: scale(0.9);
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.video-card-interactive:hover .play-button-circle {
+  transform: scale(1);
+}
+
+.play-text {
+  color: #fffdf8;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+/* Lightbox Modal */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 18, 25, 0.82);
+  backdrop-filter: blur(15px);
+}
+
+.lightbox-close {
+  all: unset;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 1010;
+  color: #fffdf8;
+  opacity: 0.7;
+  transition: opacity 200ms ease, transform 200ms ease;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 1005;
+  display: flex;
+  gap: 3rem;
+  max-width: 900px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* iPhone Mockup */
+.phone-mockup {
+  position: relative;
+  width: 320px;
+  height: 560px;
+  background: #000;
+  border-radius: 42px;
+  border: 10px solid #1c1a1e;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  overflow: hidden;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 20px;
+  background: #1c1a1e;
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+}
+
+.lightbox-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.lightbox-details {
+  color: #fffdf8;
+  max-width: 400px;
+  text-align: left;
+}
+
+.lightbox-subtitle {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lightbox-title {
+  margin: 0.5rem 0 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.lightbox-desc {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  font-size: 0.98rem;
+  margin-bottom: 2rem;
+}
+
+.lightbox-actions .button-primary {
+  box-shadow: 0 15px 35px rgba(201, 114, 81, 0.35);
+}
+
+/* ── Glow Buttons & Hover effects ── */
+.button-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.button-primary:hover::before {
+  left: 100%;
+  transition: 0.7s;
+}
+
+/* Bento Grid Dark Mode */
+html.dark .bento-portrait-frame {
+  border-color: rgba(200, 180, 160, 0.08);
+}
+
+html.dark .bento-social-item {
+  background: rgba(30, 26, 22, 0.6);
+  border-color: rgba(200, 180, 160, 0.1);
+}
+
+html.dark .bento-social-item:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1e1a16;
+}
+
+html.dark .faq-item {
+  border-color: rgba(200, 180, 160, 0.08);
+}
+
+html.dark .faq-item--open {
+  border-color: var(--accent);
+}
+
+html.dark .faq-icon-wrapper {
+  background: rgba(200, 180, 160, 0.05);
+  color: var(--text);
+}
+
+html.dark .faq-item--open .faq-icon-wrapper {
+  background: var(--accent);
+  color: #1e1a16;
+}
+
+/* Mobile Responsive overrides for Bento Grid & Lightbox */
+@media (max-width: 900px) {
+  .bento-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.2rem;
+  }
+
+  .bento-card--large, 
+  .bento-card--medium, 
+  .bento-card--socials {
+    grid-column: span 1;
+  }
+
+  .bento-card--portrait {
+    grid-row: auto;
+  }
+
+  .bento-portrait-frame {
+    min-height: 420px;
+  }
+
+  .lightbox-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 3rem;
+  }
+
+  .phone-mockup {
+    width: 260px;
+    height: 450px;
+  }
+
+  .lightbox-details {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .lightbox-title {
+    font-size: 2rem;
+  }
+
+  .lightbox-desc {
+    margin-bottom: 1.2rem;
+  }
+
+  .lightbox-actions .button {
+    width: 100%;
+  }
+}
+
