@@ -45,21 +45,11 @@ export default function ContactForm({ profile }) {
             <p>
               Si te interesa mi propuesta, completa el formulario y te responderé a la brevedad.
             </p>
-
-            <div className="contact-card" style={{ marginTop: '1.5rem' }}>
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
-              <a href={profile.instagram} target="_blank" rel="noreferrer">
-                Instagram
-              </a>
-              <a href={profile.tiktok} target="_blank" rel="noreferrer">
-                TikTok
-              </a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                Linkedin profesional
-              </a>
-              <span>{profile.company}</span>
-              <span>{profile.education}</span>
-            </div>
+            <img
+              src="/1.webp"
+              alt="Insight Estrategia Digital"
+              style={{ marginTop: '1.5rem', width: '100%', maxWidth: '220px', height: 'auto', display: 'block' }}
+            />
           </div>
 
           <div className={`contact-form-card fade-in-up ${visible ? 'visible' : ''}`}>

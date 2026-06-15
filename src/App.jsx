@@ -3,10 +3,10 @@ import heroImage from './assets/nataly-hero.webp'
 
 import ThemeToggle from './components/ThemeToggle'
 import TestimonialCarousel from './components/TestimonialCarousel'
-import VideoGallery from './components/VideoGallery'
 import ContactForm from './components/ContactForm'
 import Marquee from './components/Marquee'
 import FAQ from './components/FAQ'
+import VideoCarousel from './components/VideoCarousel'
 import { useScrollAnimation } from './hooks/useScrollAnimation'
 
 const profile = {
@@ -110,59 +110,51 @@ const testimonials = [
 
 const collaborationVideos = [
   {
-    title: 'UGC · Eucerin',
-    subtitle: 'Contenido para marca de skincare',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm/video/7623565697842531602?lang=es-419',
-    description: 'UGC para marca de skincare con tono cercano y enfoque de conversión.',
+    title: 'UGC · Colaboración de marca',
+    subtitle: 'Contenido orgánico para redes',
+    embedUrl: 'https://www.instagram.com/p/DU_nNzSAckm/embed/',
+    postUrl: 'https://www.instagram.com/p/DU_nNzSAckm/',
+    description: 'Pieza UGC diseñada para conectar de forma auténtica con la audiencia y generar confianza de marca.',
     category: 'UGC'
   },
   {
-    title: 'UGC · Gillette Venus',
-    subtitle: 'Contenido para marca internacional',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm/video/7606451765197671687?lang=es-419',
-    description: 'Pieza UGC para campaña internacional con foco en captación.',
+    title: 'UGC · Contenido de producto',
+    subtitle: 'Video para pauta y orgánico',
+    embedUrl: 'https://www.instagram.com/p/DH_8BO4BT3k/embed/',
+    postUrl: 'https://www.instagram.com/p/DH_8BO4BT3k/',
+    description: 'Contenido UGC con tono natural y cercano, adaptado para usar en campañas de Meta Ads.',
     category: 'UGC'
   },
   {
-    title: 'UGC · Avon',
-    subtitle: 'Contenido de producto',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
-    description: 'Video UGC para campaña de producto con alta tasa de retención.',
-    category: 'UGC'
-  },
-  {
-    title: 'Marca Personal · Posicionamiento',
-    subtitle: 'Estrategia de contenido propio',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm/video/7606451765197671687?lang=es-419',
-    description: 'Ejemplo de contenido de marca personal aplicando pilares de posicionamiento.',
+    title: 'Marca Personal · Estrategia',
+    subtitle: 'Posicionamiento digital',
+    embedUrl: 'https://www.instagram.com/p/DIck0b0OpLd/embed/',
+    postUrl: 'https://www.instagram.com/p/DIck0b0OpLd/',
+    description: 'Ejemplo de contenido aplicando pilares de posicionamiento y estrategia de marca personal.',
     category: 'Marca Personal'
   },
   {
     title: 'Marca Personal · Autoridad',
-    subtitle: 'Contenido de expertise',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
-    description: 'Video de marca personal enfocado en construir autoridad y confianza.',
+    subtitle: 'Construcción de presencia',
+    embedUrl: 'https://www.instagram.com/p/C-5rNjcpnxZ/embed/',
+    postUrl: 'https://www.instagram.com/p/C-5rNjcpnxZ/',
+    description: 'Video de marca personal enfocado en construir autoridad y confianza con la audiencia.',
     category: 'Marca Personal'
   },
   {
-    title: 'Meta Ads · Clínica Art',
-    subtitle: 'Campaña de captación',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7606451765197671687?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
-    description: 'Creatividad para Meta Ads enfocada en generar consultas y leads.',
+    title: 'Meta Ads · Clínica O2 Aesthetics',
+    subtitle: 'Campaña de captación de leads',
+    embedUrl: 'https://www.instagram.com/p/DYxrKY4RCvK/embed/',
+    postUrl: 'https://www.instagram.com/p/DYxrKY4RCvK/',
+    description: 'Creatividad para Meta Ads enfocada en generar consultas y leads para clínica estética.',
     category: 'Meta Ads'
   },
   {
-    title: 'Meta Ads · O2 Aesthetics',
+    title: 'Meta Ads · Dental Art Osorno',
     subtitle: 'Campaña de conversión',
-    embedUrl: 'https://www.tiktok.com/embed/v2/7623565697842531602?autoplay=1&mute=1',
-    postUrl: 'https://www.tiktok.com/@nathaly.gomezm',
-    description: 'Anuncio de Meta Ads optimizado para conversión con creatividad UGC.',
+    embedUrl: 'https://www.instagram.com/p/DX7g9othUEJ/embed/',
+    postUrl: 'https://www.instagram.com/p/DX7g9othUEJ/',
+    description: 'Anuncio de Meta Ads optimizado para atraer nuevos pacientes con contenido de alto impacto.',
     category: 'Meta Ads'
   }
 ]
@@ -487,7 +479,6 @@ function App() {
           </div>
         </section>
 
-        <VideoGallery videos={collaborationVideos} categories={videoCategories} />
 
         <TestimonialCarousel items={testimonials} />
 
@@ -590,6 +581,8 @@ function App() {
         </section>
 
         <FAQ />
+
+        <VideoCarousel videos={collaborationVideos} />
 
         {/* Sección 7: CTA Final + Contacto */}
         <section className="section" id="cta-final" style={{ textAlign: 'center', padding: '5rem 0' }}>
