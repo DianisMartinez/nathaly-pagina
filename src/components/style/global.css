@@ -1700,7 +1700,33 @@ html.dark .contact-form textarea {
 
 /* ── FAQ Acordeón ── */
 .faq-section {
-  background: rgba(255, 252, 247, 0.4);
+  background: linear-gradient(160deg, #EAF0F7 0%, #dce8f5 50%, #EAF0F7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127, 173, 224, 0.28) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.faq-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 101, 162, 0.14) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .faq-list {
@@ -1708,25 +1734,29 @@ html.dark .contact-form textarea {
   margin: 2.5rem auto 0;
   display: grid;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .faq-item {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(34, 101, 162, 0.15);
   border-radius: 20px;
-  background: var(--surface);
-  backdrop-filter: blur(10px);
+  background: rgba(234, 240, 247, 0.75);
+  backdrop-filter: blur(12px);
   overflow: hidden;
   transition: all 250ms ease;
 }
 
 .faq-item:hover {
-  border-color: rgba(127, 173, 224, 0.45);
-  box-shadow: 0 12px 30px rgba(6, 38, 84, 0.06);
+  border-color: rgba(127, 173, 224, 0.50);
+  box-shadow: 0 12px 30px rgba(6, 38, 84, 0.08);
+  background: rgba(234, 240, 247, 0.95);
 }
 
 .faq-item--open {
-  border-color: var(--accent);
-  box-shadow: 0 16px 40px rgba(6, 38, 84, 0.08);
+  border-color: #2265A2;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 40px rgba(6, 38, 84, 0.12);
 }
 
 .faq-question-btn {
@@ -1755,8 +1785,8 @@ html.dark .contact-form textarea {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(34, 101, 162, 0.06);
-  color: var(--text);
+  background: rgba(34, 101, 162, 0.10);
+  color: #2265A2;
   transition: all 250ms ease;
   flex-shrink: 0;
 }
@@ -1766,8 +1796,8 @@ html.dark .contact-form textarea {
 }
 
 .faq-item--open .faq-icon-wrapper {
-  background: var(--accent);
-  color: #f0f6ff;
+  background: linear-gradient(135deg, #2265A2 0%, #062654 100%);
+  color: #EAF0F7;
 }
 
 .faq-item--open .faq-icon {
@@ -1781,10 +1811,11 @@ html.dark .contact-form textarea {
 
 .faq-answer-content {
   padding: 0 1.8rem 1.6rem 1.8rem;
+  border-top: 1px solid rgba(34, 101, 162, 0.10);
 }
 
 .faq-answer-content p {
-  margin: 0;
+  margin: 0.9rem 0 0;
   color: var(--muted);
   line-height: 1.7;
   font-size: 0.98rem;

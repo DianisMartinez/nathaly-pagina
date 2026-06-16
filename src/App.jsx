@@ -75,15 +75,31 @@ const differentials = [
 const clientGroups = [
   {
     category: 'Corporativo / Multinacional',
-    clients: ['Electrolux', 'Fensa', 'Mademsa', 'Somela']
+    clients: [
+      { name: 'Electrolux', url: 'https://www.electrolux.cl' },
+      { name: 'Fensa', url: 'https://www.fensa.cl' },
+      { name: 'Mademsa', url: 'https://www.mademsa.com' },
+      { name: 'Somela', url: 'https://www.somela.cl' },
+    ]
   },
   {
     category: 'Empresas',
-    clients: ['Clínica Art', 'O2 Aesthetics', 'Bubble & Coffee', 'Lofts Angachilla']
+    clients: [
+      { name: 'Clínica Art', url: 'https://www.instagram.com/dentalartosorno/' },
+      { name: 'O2 Aesthetics', url: 'https://www.instagram.com/clinicao2aesthetics/' },
+      { name: 'Bubble & Coffee', url: 'https://www.instagram.com/bubbleandcoffee.cl/' },
+      { name: 'Lofts Angachilla', url: 'https://www.instagram.com/loftsangachilla/' },
+    ]
   },
   {
     category: 'UGC / Marca Personal',
-    clients: ['Eucerin', 'Gillette Venus', 'Avon', 'Temu', 'Pullman']
+    clients: [
+      { name: 'Eucerin', url: 'https://www.eucerin.cl' },
+      { name: 'Gillette Venus', url: 'https://www.gillettevenus.com' },
+      { name: 'Avon', url: 'https://www.avon.cl' },
+      { name: 'Temu', url: 'https://www.temu.com' },
+      { name: 'Pullman', url: 'https://www.pullman.cl' },
+    ]
   }
 ]
 
@@ -458,19 +474,26 @@ function App() {
                   </h4>
                   <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '0.75rem' }}>
                     {group.clients.map((client, ci) => (
-                      <div
-                        key={client}
+                      <a
+                        key={client.name}
+                        href={client.url}
+                        target="_blank"
+                        rel="noreferrer"
                         className={`service-card fade-in-up ${clientesVisible ? 'visible' : ''}`}
                         style={{
                           transitionDelay: `${(gi * 4 + ci) * 60}ms`,
                           textAlign: 'center',
                           padding: '1.2rem',
                           fontWeight: 700,
-                          fontSize: '0.95rem'
+                          fontSize: '0.95rem',
+                          display: 'block',
+                          cursor: 'pointer',
+                          textDecoration: 'none'
                         }}
                       >
-                        {client}
-                      </div>
+                        {client.name}
+                        <span style={{ display: 'block', fontSize: '0.68rem', fontWeight: 400, opacity: 0.5, marginTop: '0.25rem' }}>Ver más ↗</span>
+                      </a>
                     ))}
                   </div>
                 </div>
