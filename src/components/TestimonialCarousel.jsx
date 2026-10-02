@@ -34,10 +34,10 @@ export default function TestimonialCarousel({ items }) {
     <section className="section" id="testimonios" ref={containerRef}>
       <div className="container">
         <div className={`section-heading fade-in ${visible ? 'visible' : ''}`}>
-          <span className="eyebrow">Testimonios</span>
+          <span className="eyebrow">Mi enfoque</span>
           <div>
-            <h2>Lo que dicen de mi trabajo</h2>
-            <p>Opiniones de clientes y colaboradores sobre mi propuesta de valor.</p>
+            <h2>Ideas que guían mi trabajo</h2>
+            <p>Principios que aplico al desarrollar una estrategia para cada proyecto.</p>
           </div>
         </div>
 

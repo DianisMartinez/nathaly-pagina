@@ -27,10 +27,9 @@ export default function VideoCarousel({ videos }) {
     <section className="section" id="contenido-redes" ref={ref}>
       <div className="container">
         <div className={`section-heading fade-in ${visible ? 'visible' : ''}`}>
-          <span className="eyebrow">Contenido en redes</span>
+          <span className="eyebrow">Instagram</span>
           <div>
-            <h2>Trabajo real en acción</h2>
-            <p>UGC, Marca Personal y Meta Ads. Desliza para ver más.</p>
+            <h2>Contenido y colaboraciones</h2>
           </div>
         </div>
 
@@ -42,26 +41,36 @@ export default function VideoCarousel({ videos }) {
           </button>
 
           <div className="carousel-track" ref={trackRef}>
-            {videos.map((video, i) => (
+            {videos.map((video) => (
               <div className="carousel-card" key={video.postUrl}>
-                <div className="carousel-embed-wrapper">
-                  <iframe
-                    src={video.embedUrl}
-                    title={video.title}
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    allowFullScreen
-                    scrolling="no"
-                    frameBorder="0"
-                    loading="lazy"
-                    className="carousel-iframe"
-                  />
-                </div>
-                <div className="carousel-card-footer">
-                  <span className="video-placeholder-tag">{video.category}</span>
-                  <a href={video.postUrl} target="_blank" rel="noreferrer" className="video-open-link-inline">
-                    Ver en Instagram ↗
-                  </a>
-                </div>
+                <a
+                  className={`instagram-post-card ${video.thumbnail ? '' : 'instagram-post-card--fallback'}`}
+                  href={video.postUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Ver publicación de ${video.category}: ${video.title} en Instagram`}
+                >
+                  {video.thumbnail ? (
+                    <img src={video.thumbnail} alt="" loading="lazy" decoding="async" />
+                  ) : (
+                    <div className="instagram-post-fallback">
+                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none" />
+                      </svg>
+                      <span>{video.category}</span>
+                      <strong>{video.title}</strong>
+                      <small>Ver publicación</small>
+                    </div>
+                  )}
+                  {video.thumbnail && (
+                    <div className="instagram-post-overlay">
+                      <span>{video.category}</span>
+                      <span className="instagram-post-link-label">Ver en Instagram ↗</span>
+                    </div>
+                  )}
+                </a>
               </div>
             ))}
           </div>
@@ -79,7 +88,7 @@ export default function VideoCarousel({ videos }) {
               key={i}
               className={`carousel-dot ${i === current ? 'carousel-dot--active' : ''}`}
               onClick={() => scrollTo(i)}
-              aria-label={`Ir al video ${i + 1}`}
+              aria-label={`Ir a la publicación ${i + 1}`}
             />
           ))}
         </div>

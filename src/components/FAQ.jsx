@@ -3,28 +3,28 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const faqData = [
   {
-    question: '¿Qué diferencia a Insight de otras agencias de marketing digital?',
-    answer: 'En Insight la estrategia va antes que la ejecución. No creamos contenido por crear contenido ni lanzamos campañas sin una dirección clara. Analizamos el negocio, el mercado y los objetivos para diseñar estrategias enfocadas en crecimiento real. Nuestra experiencia en comunicación corporativa dentro de empresas nos permite alinear el marketing con los objetivos reales del negocio.'
+    question: '¿Insight es una agencia de marketing?',
+    answer: 'No. Insight es el proyecto que fundé para trabajar directamente con empresas y marcas personales. Como periodista y estratega digital, analizo cada negocio y sus objetivos antes de proponer contenido o campañas.'
   },
   {
     question: '¿Cómo es el proceso para comenzar a trabajar juntos?',
-    answer: 'Comenzamos con una reunión de diagnóstico donde analizamos tu negocio, tu mercado y tus objetivos. A partir de ese análisis diseñamos una estrategia personalizada con acciones concretas. Luego pasamos a la ejecución: contenido, campañas o ambas, con medición y optimización constante.'
+    answer: 'Comienzo con una conversación para conocer tu negocio, mercado y objetivos. Con ese contexto preparo una propuesta de trabajo; si avanzamos, definimos las acciones, su ejecución y cómo medirlas.'
   },
   {
-    question: '¿Trabajan solo con empresas o también con marcas personales?',
-    answer: 'Trabajamos con ambas. Nuestra propuesta está diseñada para vender simultáneamente a empresas (con ticket alto) y a marcas personales y mentorías (ticket medio). El mensaje es siempre el mismo: ayudamos a empresas y marcas personales a crecer mediante estrategia, contenido y publicidad basada en datos.'
+    question: '¿Trabajas solo con empresas o también con marcas personales?',
+    answer: 'Trabajo con empresas y marcas personales. La estrategia, el contenido y la publicidad se ajustan a los objetivos y al contexto de cada proyecto.'
   },
   {
     question: '¿Qué incluye el servicio de Meta Ads?',
-    answer: 'El servicio incluye diagnóstico de cuenta, definición de objetivos y audiencias, creación de creatividades y copies, configuración y lanzamiento de campañas, optimización semanal y reporte de resultados. Todo está enfocado en generar oportunidades comerciales reales, no solo en métricas de vanidad.'
+    answer: 'El trabajo puede incluir diagnóstico de cuenta, definición de objetivos y audiencias, creatividades, configuración de campañas y revisión de resultados. El alcance se define según las necesidades de cada proyecto.'
   },
   {
     question: '¿Qué es el contenido UGC y para qué sirve?',
-    answer: 'El contenido UGC (User Generated Content) son videos creados para parecer orgánicos y auténticos, como si fueran recomendaciones reales. Son ideales para Meta Ads porque generan mayor confianza y conversión que los anuncios tradicionales. En Insight los diseñamos según el objetivo de cada etapa: posicionamiento, captación, confianza o conversión.'
+    answer: 'El contenido UGC (User Generated Content) usa un estilo cercano y espontáneo para presentar una marca o producto. Creo las piezas según el canal y el objetivo: posicionamiento, captación, confianza o conversión.'
   },
   {
     question: '¿Qué incluye el servicio de Marca Personal?',
-    answer: 'El servicio incluye auditoría de perfil digital, definición de posicionamiento y diferencial, estrategia de contenido personalizada, mentoría y acompañamiento. Está pensado para emprendedoras, profesionales, creadoras de contenido e influencers que quieren construir autoridad digital, posicionarse y monetizar su marca.'
+    answer: 'Puedo trabajar una auditoría de perfil, el posicionamiento, la estrategia de contenido y mentorías. Está pensado para emprendedoras, profesionales y creadoras que quieren desarrollar su presencia digital.'
   }
 ]
 
@@ -43,7 +43,7 @@ export default function FAQ() {
           <span className="eyebrow">Preguntas Frecuentes</span>
           <div>
             <h2>Preguntas frecuentes</h2>
-            <p>Todo lo que necesitas saber antes de que empecemos a trabajar juntos.</p>
+            <p>Información útil antes de conversar sobre tu proyecto.</p>
           </div>
         </div>
 

@@ -41,15 +41,13 @@ export default function ContactForm({ profile }) {
         <div className={`contact-banner fade-in ${visible ? 'visible' : ''}`}>
           <div>
             <span className="eyebrow">Contacto</span>
-            <h2>Trabajemos juntos</h2>
+            <h2>Hablemos</h2>
             <p>
-              Si te interesa mi propuesta, completa el formulario y te responderé a la brevedad.
+              Cuéntame brevemente sobre tu proyecto.
             </p>
-            <img
-              src="/1.webp"
-              alt="Insight Estrategia Digital"
-              style={{ marginTop: '1.5rem', width: '100%', maxWidth: '220px', height: 'auto', display: 'block' }}
-            />
+            <figure className="contact-brand-photo">
+              <img src="/1.webp" alt="Insight Estrategia Digital" loading="lazy" />
+            </figure>
           </div>
 
           <div className={`contact-form-card fade-in-up ${visible ? 'visible' : ''}`}>
@@ -64,7 +62,7 @@ export default function ContactForm({ profile }) {
             ) : (
               <>
                 <form className="contact-form" onSubmit={handleSubmit}>
-                  <h3>Enviame un mensaje</h3>
+                  <h3>Enviar consulta</h3>
 
                   <label>
                     <span>Nombre</span>
@@ -78,7 +76,7 @@ export default function ContactForm({ profile }) {
 
                   <label>
                     <span>Mensaje</span>
-                    <textarea name="message" placeholder="Cuentame sobre tu proyecto..." rows={4} required />
+                    <textarea name="message" placeholder="¿Qué necesitas?" rows={4} required />
                   </label>
 
                   {result && <p className="form-error">{result}</p>}
